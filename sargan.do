@@ -1,0 +1,52 @@
+clear
+set more off, permanently
+capture log close
+cd C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu
+log using maketabl_ex1, replace
+use disease, clear
+tsset ctry year
+*log gdp 
+xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & startrich!=1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) &startrich!=1 & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) yr1980xavcons506070 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) lntotmaddgdp301980 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg logtotalmaddgdp  (loglifeexpect= index globmort1000) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+*log per capita gdp
+xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & startrich!=1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) &startrich!=1 & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) yr1980xavcons506070 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) lntotmaddgdp301980 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg loggdppcmadd (loglifeexpect= index globmort1000) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+* log gdp per working age population
+xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & startrich!=1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) &startrich!=1 & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) yr1980xavcons506070 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) lntotmaddgdp301980 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid
+xtivreg lnGDPperpopworkage (loglifeexpect= index globmort1000) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+xtoverid

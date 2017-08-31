@@ -1,0 +1,762 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu\maketabl_ex1.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}13 Dec 2013, 04:31:53
+{txt}
+{com}. use disease, clear
+{txt}
+{com}. tsset ctry year
+{res}{txt}{col 8}panel variable:  {res}ctry (unbalanced)
+{txt}{col 9}time variable:  {res}{col 25}year, 1900 to 2005, but with gaps
+{txt}{col 17}delta:  {res}1 unit
+{txt}
+{com}. *log gdp 
+. xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       94
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       47
+
+{txt}R-sq:  within  = {res}0.9360{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.0996{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.2338{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res}120261.49
+{txt}corr(u_i, Xb){col 16}= {res}0.0218{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}logtotalma~p{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2} .3367958{col 26}{space 2} .5038597{col 37}{space 1}    0.67{col 46}{space 3}0.504{col 54}{space 4}-.6507511{col 67}{space 3} 1.324343
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.472484{col 26}{space 2} .1839362{col 37}{space 1}   -8.01{col 46}{space 3}0.000{col 54}{space 4}-1.832992{col 67}{space 3}-1.111976
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 10.11252{col 26}{space 2} 2.120346{col 37}{space 1}    4.77{col 46}{space 3}0.000{col 54}{space 4} 5.956715{col 67}{space 3} 14.26832
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.5061144
+{txt}     sigma_e {c |} {res} .30095736
+{txt}         rho {c |} {res} .96160363{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}46{txt},{res}45{txt}) = {res}   46.61{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.653{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.4192
+{txt}
+{com}. xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       94
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       47
+
+{txt}R-sq:  within  = {res}0.9548{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.0803{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.3491{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 96698.89
+{txt}corr(u_i, Xb){col 16}= {res}0.0149{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}logtotalma~p{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2} .4055101{col 26}{space 2} .4612835{col 37}{space 1}    0.88{col 46}{space 3}0.379{col 54}{space 4}-.4985889{col 67}{space 3} 1.309609
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-2.023667{col 26}{space 2} .2074338{col 37}{space 1}   -9.76{col 46}{space 3}0.000{col 54}{space 4} -2.43023{col 67}{space 3}-1.617104
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 10.39821{col 26}{space 2}  1.97767{col 37}{space 1}    5.26{col 46}{space 3}0.000{col 54}{space 4} 6.522047{col 67}{space 3} 14.27437
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.5333867
+{txt}     sigma_e {c |} {res} .34586804
+{txt}         rho {c |} {res} .95158658{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}46{txt},{res}45{txt}) = {res}   37.41{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.460{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.4974
+{txt}
+{com}. xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & startrich!=1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       72
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       36
+
+{txt}R-sq:  within  = {res}0.9278{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.0192{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.2416{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 70330.73
+{txt}corr(u_i, Xb){col 16}= {res}-0.0056{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}logtotalma~p{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-.1743673{col 26}{space 2} 1.010363{col 37}{space 1}   -0.17{col 46}{space 3}0.863{col 54}{space 4}-2.154643{col 67}{space 3} 1.805908
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.719694{col 26}{space 2} .4199885{col 37}{space 1}   -4.09{col 46}{space 3}0.000{col 54}{space 4}-2.542856{col 67}{space 3}-.8965315
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 11.96961{col 26}{space 2} 4.220153{col 37}{space 1}    2.84{col 46}{space 3}0.005{col 54}{space 4} 3.698258{col 67}{space 3} 20.24095
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  1.447529
+{txt}     sigma_e {c |} {res}  .3343461
+{txt}         rho {c |} {res} .94935167{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}35{txt},{res}34{txt}) = {res}   36.60{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  1.110{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.2921
+{txt}
+{com}. xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) &startrich!=1 & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       72
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       36
+
+{txt}R-sq:  within  = {res}0.9502{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.0126{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.3594{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 57646.83
+{txt}corr(u_i, Xb){col 16}= {res}-0.0132{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}logtotalma~p{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-.6001837{col 26}{space 2} .8448168{col 37}{space 1}   -0.71{col 46}{space 3}0.477{col 54}{space 4}-2.255994{col 67}{space 3} 1.055627
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-2.596549{col 26}{space 2} .4296123{col 37}{space 1}   -6.04{col 46}{space 3}0.000{col 54}{space 4}-3.438573{col 67}{space 3}-1.754524
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 14.45102{col 26}{space 2} 3.604086{col 37}{space 1}    4.01{col 46}{space 3}0.000{col 54}{space 4} 7.387144{col 67}{space 3}  21.5149
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.5070802
+{txt}     sigma_e {c |} {res} .38179719
+{txt}         rho {c |} {res} .93969157{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}35{txt},{res}34{txt}) = {res}   30.36{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.021{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.8855
+{txt}
+{com}. xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) yr1980xavcons506070 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       94
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       47
+
+{txt}R-sq:  within  = {res}0.9363{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.0754{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.1944{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}3{txt}){col 65}={col 70}{res}118216.55
+{txt}corr(u_i, Xb){col 16}= {res}-0.0271{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}logtotalma~p{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-.0499961{col 26}{space 2} .6955668{col 37}{space 1}   -0.07{col 46}{space 3}0.943{col 54}{space 4}-1.413282{col 67}{space 3}  1.31329
+{txt}yr198~506070 {c |}{col 14}{res}{space 2}-.0605616{col 26}{space 2} .0458311{col 37}{space 1}   -1.32{col 46}{space 3}0.186{col 54}{space 4} -.150389{col 67}{space 3} .0292658
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.893165{col 26}{space 2} .4322696{col 37}{space 1}   -4.38{col 46}{space 3}0.000{col 54}{space 4}-2.740398{col 67}{space 3}-1.045932
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 12.02763{col 26}{space 2} 3.094064{col 37}{space 1}    3.89{col 46}{space 3}0.000{col 54}{space 4}  5.96338{col 67}{space 3} 18.09189
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.5453575
+{txt}     sigma_e {c |} {res} .30355342
+{txt}         rho {c |} {res}   .962849{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}46{txt},{res}44{txt}) = {res}   45.40{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1980xavcons506070 yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.833{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.3613
+{txt}
+{com}. xtivreg logtotalmaddgdp  (loglifeexpect= index compsjmhatit) lntotmaddgdp301980 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       94
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       47
+
+{txt}R-sq:  within  = {res}0.9412{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.9460{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.1326{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}3{txt}){col 65}={col 70}{res}128047.61
+{txt}corr(u_i, Xb){col 16}= {res}-0.1112{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}logtotalma~p{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-.0698413{col 26}{space 2}  .557866{col 37}{space 1}   -0.13{col 46}{space 3}0.900{col 54}{space 4}-1.163239{col 67}{space 3} 1.023556
+{txt}lntot~301980 {c |}{col 14}{res}{space 2}-.1086821{col 26}{space 2} .0450985{col 37}{space 1}   -2.41{col 46}{space 3}0.016{col 54}{space 4}-.1970736{col 67}{space 3}-.0202906
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2} -2.67223{col 26}{space 2} .5712203{col 37}{space 1}   -4.68{col 46}{space 3}0.000{col 54}{space 4}-3.791801{col 67}{space 3}-1.552659
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 12.88337{col 26}{space 2} 2.614593{col 37}{space 1}    4.93{col 46}{space 3}0.000{col 54}{space 4} 7.758867{col 67}{space 3} 18.00788
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  1.615071
+{txt}     sigma_e {c |} {res} .29167221
+{txt}         rho {c |} {res} .96841588{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}46{txt},{res}44{txt}) = {res}   27.95{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}lntotmaddgdp301980 yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.123{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.7259
+{txt}
+{com}. xtivreg logtotalmaddgdp  (loglifeexpect= index globmort1000) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       94
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       47
+
+{txt}R-sq:  within  = {res}0.9371{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.0996{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.2415{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res}122520.67
+{txt}corr(u_i, Xb){col 16}= {res}0.0289{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}logtotalma~p{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}  .478076{col 26}{space 2} .5061576{col 37}{space 1}    0.94{col 46}{space 3}0.345{col 54}{space 4}-.5139746{col 67}{space 3} 1.470127
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.423936{col 26}{space 2} .1844872{col 37}{space 1}   -7.72{col 46}{space 3}0.000{col 54}{space 4}-1.785524{col 67}{space 3}-1.062347
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 9.518107{col 26}{space 2} 2.130003{col 37}{space 1}    4.47{col 46}{space 3}0.000{col 54}{space 4} 5.343377{col 67}{space 3} 13.69284
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  1.498979
+{txt}     sigma_e {c |} {res} .29817028
+{txt}         rho {c |} {res} .96193858{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}46{txt},{res}45{txt}) = {res}   47.43{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index globmort1000{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.712{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.3989
+{txt}
+{com}. *log per capita gdp
+. xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       94
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       47
+
+{txt}R-sq:  within  = {res}0.8551{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.7626{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0043{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 89854.79
+{txt}corr(u_i, Xb){col 16}= {res}-0.4310{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}loggdppcmadd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-1.298115{col 26}{space 2} .4436576{col 37}{space 1}   -2.93{col 46}{space 3}0.003{col 54}{space 4}-2.167668{col 67}{space 3}-.4285621
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.329599{col 26}{space 2} .1619591{col 37}{space 1}   -8.21{col 46}{space 3}0.000{col 54}{space 4}-1.647033{col 67}{space 3}-1.012165
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 14.08415{col 26}{space 2} 1.867003{col 37}{space 1}    7.54{col 46}{space 3}0.000{col 54}{space 4} 10.42489{col 67}{space 3} 17.74341
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.0419406
+{txt}     sigma_e {c |} {res} .26499838
+{txt}         rho {c |} {res} .93924535{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}46{txt},{res}45{txt}) = {res}    7.19{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.579{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.4469
+{txt}
+{com}. xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       94
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       47
+
+{txt}R-sq:  within  = {res}0.8703{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.8303{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0857{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 54718.00
+{txt}corr(u_i, Xb){col 16}= {res}-0.3532{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}loggdppcmadd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-1.519599{col 26}{space 2} .4629425{col 37}{space 1}   -3.28{col 46}{space 3}0.001{col 54}{space 4} -2.42695{col 67}{space 3}-.6122486
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.866493{col 26}{space 2} .2081798{col 37}{space 1}   -8.97{col 46}{space 3}0.000{col 54}{space 4}-2.274518{col 67}{space 3}-1.458468
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 15.47679{col 26}{space 2} 1.984782{col 37}{space 1}    7.80{col 46}{space 3}0.000{col 54}{space 4} 11.58668{col 67}{space 3} 19.36689
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  1.049391
+{txt}     sigma_e {c |} {res} .34711194
+{txt}         rho {c |} {res}  .9013785{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}46{txt},{res}45{txt}) = {res}    4.76{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.415{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.5195
+{txt}
+{com}. xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & startrich!=1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       72
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       36
+
+{txt}R-sq:  within  = {res}0.8135{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.6321{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0001{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 50051.99
+{txt}corr(u_i, Xb){col 16}= {res}-0.5574{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}loggdppcmadd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-2.130409{col 26}{space 2} .9057935{col 37}{space 1}   -2.35{col 46}{space 3}0.019{col 54}{space 4}-3.905732{col 67}{space 3}-.3550863
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.724652{col 26}{space 2} .3765209{col 37}{space 1}   -4.58{col 46}{space 3}0.000{col 54}{space 4} -2.46262{col 67}{space 3}-.9866851
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 17.21607{col 26}{space 2} 3.783379{col 37}{space 1}    4.55{col 46}{space 3}0.000{col 54}{space 4} 9.800782{col 67}{space 3} 24.63135
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.0288249
+{txt}     sigma_e {c |} {res} .29974222
+{txt}         rho {c |} {res} .92175968{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}35{txt},{res}34{txt}) = {res}    5.24{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  1.429{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.2319
+{txt}
+{com}. xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) &startrich!=1 & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       72
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       36
+
+{txt}R-sq:  within  = {res}0.8429{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.7320{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0469{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 31734.84
+{txt}corr(u_i, Xb){col 16}= {res}-0.4971{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}loggdppcmadd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-2.702331{col 26}{space 2} .8521977{col 37}{space 1}   -3.17{col 46}{space 3}0.002{col 54}{space 4}-4.372608{col 67}{space 3}-1.032054
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-2.540797{col 26}{space 2} .4333656{col 37}{space 1}   -5.86{col 46}{space 3}0.000{col 54}{space 4}-3.390178{col 67}{space 3}-1.691416
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 20.18733{col 26}{space 2} 3.635574{col 37}{space 1}    5.55{col 46}{space 3}0.000{col 54}{space 4} 13.06174{col 67}{space 3} 27.31293
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.0694353
+{txt}     sigma_e {c |} {res} .38513283
+{txt}         rho {c |} {res} .88519729{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}35{txt},{res}34{txt}) = {res}    3.34{col 59}{txt}Prob > F    = {res}0.0003
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.001{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.9798
+{txt}
+{com}. xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) yr1980xavcons506070 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       94
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       47
+
+{txt}R-sq:  within  = {res}0.8530{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.7691{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0032{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}3{txt}){col 65}={col 70}{res} 86613.49
+{txt}corr(u_i, Xb){col 16}= {res}-0.5444{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}loggdppcmadd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-1.595492{col 26}{space 2} .6184783{col 37}{space 1}   -2.58{col 46}{space 3}0.010{col 54}{space 4}-2.807687{col 67}{space 3}-.3832971
+{txt}yr198~506070 {c |}{col 14}{res}{space 2}-.0466781{col 26}{space 2} .0407518{col 37}{space 1}   -1.15{col 46}{space 3}0.252{col 54}{space 4}-.1265501{col 67}{space 3} .0331939
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.653584{col 26}{space 2} .3843619{col 37}{space 1}   -4.30{col 46}{space 3}0.000{col 54}{space 4} -2.40692{col 67}{space 3}-.9002488
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  15.5571{col 26}{space 2} 2.751154{col 37}{space 1}    5.65{col 46}{space 3}0.000{col 54}{space 4} 10.16494{col 67}{space 3} 20.94927
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  1.123419
+{txt}     sigma_e {c |} {res}  .2699111
+{txt}         rho {c |} {res} .94542603{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}46{txt},{res}44{txt}) = {res}    5.71{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1980xavcons506070 yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.713{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.3983
+{txt}
+{com}. xtivreg loggdppcmadd (loglifeexpect= index compsjmhatit) lntotmaddgdp301980 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       94
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       47
+
+{txt}R-sq:  within  = {res}0.8533{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.7542{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0002{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}3{txt}){col 65}={col 70}{res} 86805.95
+{txt}corr(u_i, Xb){col 16}= {res}-0.4813{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}loggdppcmadd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-1.444255{col 26}{space 2} .5156732{col 37}{space 1}   -2.80{col 46}{space 3}0.005{col 54}{space 4}-2.454956{col 67}{space 3}-.4335541
+{txt}lntot~301980 {c |}{col 14}{res}{space 2}-.0358487{col 26}{space 2} .0416876{col 37}{space 1}   -0.86{col 46}{space 3}0.390{col 54}{space 4}-.1175549{col 67}{space 3} .0458575
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.729462{col 26}{space 2} .5280174{col 37}{space 1}   -3.28{col 46}{space 3}0.001{col 54}{space 4}-2.764357{col 67}{space 3}-.6945665
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 15.04865{col 26}{space 2} 2.416844{col 37}{space 1}    6.23{col 46}{space 3}0.000{col 54}{space 4} 10.31172{col 67}{space 3} 19.78558
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.0760052
+{txt}     sigma_e {c |} {res} .26961227
+{txt}         rho {c |} {res} .94092476{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}46{txt},{res}44{txt}) = {res}    6.69{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}lntotmaddgdp301980 yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.348{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.5553
+{txt}
+{com}. xtivreg loggdppcmadd (loglifeexpect= index globmort1000) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       94
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       47
+
+{txt}R-sq:  within  = {res}0.8579{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.7626{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0087{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 91644.62
+{txt}corr(u_i, Xb){col 16}= {res}-0.4045{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}loggdppcmadd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-1.197467{col 26}{space 2} .4454287{col 37}{space 1}   -2.69{col 46}{space 3}0.007{col 54}{space 4}-2.070491{col 67}{space 3} -.324443
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.295013{col 26}{space 2} .1623524{col 37}{space 1}   -7.98{col 46}{space 3}0.000{col 54}{space 4}-1.613218{col 67}{space 3}-.9768084
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 13.66069{col 26}{space 2} 1.874445{col 37}{space 1}    7.29{col 46}{space 3}0.000{col 54}{space 4} 9.986849{col 67}{space 3} 17.33454
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.0245521
+{txt}     sigma_e {c |} {res} .26239575
+{txt}         rho {c |} {res}  .9384462{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}46{txt},{res}45{txt}) = {res}    7.17{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index globmort1000{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.626{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.4289
+{txt}
+{com}. * log gdp per working age population
+. xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       92
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       46
+
+{txt}R-sq:  within  = {res}0.8601{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.7715{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0159{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 98794.20
+{txt}corr(u_i, Xb){col 16}= {res}-0.4316{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}lnGDPperpo~e{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-1.309987{col 26}{space 2}  .438267{col 37}{space 1}   -2.99{col 46}{space 3}0.003{col 54}{space 4}-2.168975{col 67}{space 3}-.4509996
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.357773{col 26}{space 2} .1600593{col 37}{space 1}   -8.48{col 46}{space 3}0.000{col 54}{space 4}-1.671483{col 67}{space 3}-1.044062
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 14.69271{col 26}{space 2}  1.84461{col 37}{space 1}    7.97{col 46}{space 3}0.000{col 54}{space 4} 11.07735{col 67}{space 3} 18.30808
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  .9574621
+{txt}     sigma_e {c |} {res} .26665076
+{txt}         rho {c |} {res} .92802185{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}45{txt},{res}44{txt}) = {res}    5.75{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.411{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.5214
+{txt}
+{com}. xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       92
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       46
+
+{txt}R-sq:  within  = {res}0.8770{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.8293{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0758{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 69659.63
+{txt}corr(u_i, Xb){col 16}= {res}-0.3904{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}lnGDPperpo~e{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-1.617742{col 26}{space 2} .4240254{col 37}{space 1}   -3.82{col 46}{space 3}0.000{col 54}{space 4}-2.448817{col 67}{space 3}-.7866679
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2} -1.84631{col 26}{space 2} .1908911{col 37}{space 1}   -9.67{col 46}{space 3}0.000{col 54}{space 4} -2.22045{col 67}{space 3}-1.472171
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 16.37087{col 26}{space 2} 1.818327{col 37}{space 1}    9.00{col 46}{space 3}0.000{col 54}{space 4} 12.80701{col 67}{space 3} 19.93472
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  1.002259
+{txt}     sigma_e {c |} {res} .32248255
+{txt}         rho {c |} {res} .90618556{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}45{txt},{res}44{txt}) = {res}    5.00{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.003{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.9598
+{txt}
+{com}. xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & sample80==1 & startrich!=1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       70
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       35
+
+{txt}R-sq:  within  = {res}0.8136{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.6489{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0013{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 53547.57
+{txt}corr(u_i, Xb){col 16}= {res}-0.5652{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}lnGDPperpo~e{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-2.160071{col 26}{space 2} .8952703{col 37}{space 1}   -2.41{col 46}{space 3}0.016{col 54}{space 4}-3.914769{col 67}{space 3}-.4053739
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.761387{col 26}{space 2} .3730926{col 37}{space 1}   -4.72{col 46}{space 3}0.000{col 54}{space 4}-2.492635{col 67}{space 3}-1.030139
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 17.93079{col 26}{space 2} 3.739391{col 37}{space 1}    4.80{col 46}{space 3}0.000{col 54}{space 4} 10.60172{col 67}{space 3} 25.25986
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .97535224
+{txt}     sigma_e {c |} {res} .30667015
+{txt}         rho {c |} {res} .91003414{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}34{txt},{res}33{txt}) = {res}    4.12{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  1.083{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.2981
+{txt}
+{com}. xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) yr1940 if sample40==1 & (year==1940 | year==2000) &startrich!=1 & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       70
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       35
+
+{txt}R-sq:  within  = {res}0.8439{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.7325{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0437{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res} 40077.02
+{txt}corr(u_i, Xb){col 16}= {res}-0.5076{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}lnGDPperpo~e{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-2.557213{col 26}{space 2} .7788529{col 37}{space 1}   -3.28{col 46}{space 3}0.001{col 54}{space 4}-4.083737{col 67}{space 3} -1.03069
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2} -2.38757{col 26}{space 2} .3974222{col 37}{space 1}   -6.01{col 46}{space 3}0.000{col 54}{space 4}-3.166503{col 67}{space 3}-1.608637
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 20.05333{col 26}{space 2} 3.323138{col 37}{space 1}    6.03{col 46}{space 3}0.000{col 54}{space 4}  13.5401{col 67}{space 3} 26.56656
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  1.006526
+{txt}     sigma_e {c |} {res}  .3596962
+{txt}         rho {c |} {res} .88675353{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}34{txt},{res}33{txt}) = {res}    3.42{col 59}{txt}Prob > F    = {res}0.0003
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.166{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.6839
+{txt}
+{com}. xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) yr1980xavcons506070 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       92
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       46
+
+{txt}R-sq:  within  = {res}0.8566{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.7617{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0017{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}3{txt}){col 65}={col 70}{res} 94179.72
+{txt}corr(u_i, Xb){col 16}= {res}-0.5872{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}lnGDPperpo~e{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-1.771148{col 26}{space 2} .6282978{col 37}{space 1}   -2.82{col 46}{space 3}0.005{col 54}{space 4}-3.002589{col 67}{space 3}-.5397067
+{txt}yr198~506070 {c |}{col 14}{res}{space 2}-.0653605{col 26}{space 2} .0422449{col 37}{space 1}   -1.55{col 46}{space 3}0.122{col 54}{space 4}-.1481589{col 67}{space 3} .0174379
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.830183{col 26}{space 2} .3961706{col 37}{space 1}   -4.62{col 46}{space 3}0.000{col 54}{space 4}-2.606663{col 67}{space 3}-1.053703
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 16.94772{col 26}{space 2} 2.800869{col 37}{space 1}    6.05{col 46}{space 3}0.000{col 54}{space 4} 11.45812{col 67}{space 3} 22.43732
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.0792784
+{txt}     sigma_e {c |} {res} .27310546
+{txt}         rho {c |} {res} .93982179{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}45{txt},{res}43{txt}) = {res}    4.72{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1980xavcons506070 yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.329{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.5664
+{txt}
+{com}. xtivreg lnGDPperpopworkage (loglifeexpect= index compsjmhatit) lntotmaddgdp301980 yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       92
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       46
+
+{txt}R-sq:  within  = {res}0.8597{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.7700{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0037{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}3{txt}){col 65}={col 70}{res} 96223.30
+{txt}corr(u_i, Xb){col 16}= {res}-0.4943{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}lnGDPperpo~e{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-1.477026{col 26}{space 2} .5095769{col 37}{space 1}   -2.90{col 46}{space 3}0.004{col 54}{space 4}-2.475778{col 67}{space 3}-.4782732
+{txt}lntot~301980 {c |}{col 14}{res}{space 2}-.0489902{col 26}{space 2} .0438844{col 37}{space 1}   -1.12{col 46}{space 3}0.264{col 54}{space 4} -.135002{col 67}{space 3} .0370216
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.889835{col 26}{space 2} .5465467{col 37}{space 1}   -3.46{col 46}{space 3}0.001{col 54}{space 4}-2.961047{col 67}{space 3}-.8186229
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 15.87046{col 26}{space 2} 2.411284{col 37}{space 1}    6.58{col 46}{space 3}0.000{col 54}{space 4} 11.14443{col 67}{space 3} 20.59648
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.0011986
+{txt}     sigma_e {c |} {res} .27018964
+{txt}         rho {c |} {res} .93211608{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}45{txt},{res}43{txt}) = {res}    5.17{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}lntotmaddgdp301980 yr1940 index compsjmhatit{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.309{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.5784
+{txt}
+{com}. xtivreg lnGDPperpopworkage (loglifeexpect= index globmort1000) yr1940 if sample40==1 & sample80==1 & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe i(ctry)
+{res}
+{txt}Fixed-effects (within) IV regression{col 46}Number of obs{col 65}={col 70}{res}       92
+{txt}Group variable: {res}ctry{txt}{col 46}Number of groups{col 65}={col 70}{res}       46
+
+{txt}R-sq:  within  = {res}0.8634{col 46}{txt}Obs per group: min{col 65}={col 70}{res}        2
+{txt}       between = {res}0.7715{col 61}{txt}avg{col 65}={col 70}{res}      2.0
+{txt}       overall = {res}0.0243{col 61}{txt}max{col 65}={col 70}{res}        2
+
+{txt}{col 46}Wald chi2({res}2{txt}){col 65}={col 70}{res}101170.58
+{txt}corr(u_i, Xb){col 16}= {res}-0.4027{txt}{col 46}Prob > chi2{col 65}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}lnGDPperpo~e{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+loglifeexp~t {c |}{col 14}{res}{space 2}-1.200374{col 26}{space 2} .4398591{col 37}{space 1}   -2.73{col 46}{space 3}0.006{col 54}{space 4}-2.062482{col 67}{space 3}-.3382659
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-1.320234{col 26}{space 2} .1603443{col 37}{space 1}   -8.23{col 46}{space 3}0.000{col 54}{space 4}-1.634503{col 67}{space 3}-1.005965
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 14.23147{col 26}{space 2} 1.851298{col 37}{space 1}    7.69{col 46}{space 3}0.000{col 54}{space 4} 10.60299{col 67}{space 3} 17.85995
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .93817503
+{txt}     sigma_e {c |} {res} .26349829
+{txt}         rho {c |} {res} .92688387{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F  test that all u_i=0:     F({res}45{txt},{res}44{txt}) = {res}    5.71{col 59}{txt}Prob > F    = {res}0.0000
+{txt}{hline 14}{hline 64}
+{p 0 16}Instrumented:{space 3}loglifeexpect{p_end}
+{p 0 16}Instruments:{space 4}yr1940 index globmort1000{p_end}
+{hline 78}
+
+{com}. xtoverid
+
+{txt}Test of overidentifying restrictions: 
+Cross-section time-series model: xtivreg fe   
+Sargan-Hansen statistic{res}{col 25}  0.447{txt}  Chi-sq({res}1{txt}){col 47}P-value = {res}0.5038
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. exit, clear

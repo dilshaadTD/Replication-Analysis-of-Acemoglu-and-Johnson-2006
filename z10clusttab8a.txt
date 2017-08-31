@@ -1,0 +1,11 @@
+z10clusttab8a	
+	(1)
+VARIABLES	1
+	
+loglifeexpect	1.669
+	[0.502]
+	
+Observations	94
+R-squared	0.993
+Number of Countries	45
+Robust standard errors in brackets	

@@ -1,0 +1,883 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu\maketable1.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}17 Nov 2013, 16:26:59
+{txt}
+{com}. 
+. /*Data Files Used
+>         disease
+>         
+> *Data Files Created as Final Product
+>         none
+>         
+> *Data Files Created as Intermediate Product
+>         none*/
+.         
+. use disease, clear
+{txt}
+{com}. 
+. * life expectancy at birth
+. sum lifeexpect if year==1900
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}       173    30.90173    8.832198         24         56
+{txt}
+{com}. sum lifeexpect if year==1900 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        47    37.59574    10.31179         24         56
+{txt}
+{com}. sum lifeexpect if year==1900 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        11    49.36364    3.668044         47         56
+{txt}
+{com}. sum lifeexpect if year==1900 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        26    36.92308    8.133501         24         56
+{txt}
+{com}. sum lifeexpect if year==1900 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        22    28.77273    5.424212         24         36
+{txt}
+{com}. sum lifeexpect if year==1900 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        24        31.5    5.718011         24         43
+{txt}
+{com}. sum lifeexpect if year==1900 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        23    43.95652    10.26237         24         56
+{txt}
+{com}. 
+. sum lifeexpect if year==1940
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        91    46.70582    11.59215      26.91       67.7
+{txt}
+{com}. sum lifeexpect if year==1940 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        47        49.3    12.67848       29.9       67.7
+{txt}
+{com}. sum lifeexpect if year==1940 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        11    65.13636    1.860254       61.8       67.7
+{txt}
+{com}. sum lifeexpect if year==1940 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        24     50.9375    9.375028       30.4       67.3
+{txt}
+{com}. sum lifeexpect if year==1940 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        22    40.63182    8.398774       29.9       59.1
+{txt}
+{com}. sum lifeexpect if year==1940 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        24    39.66667    7.992805       29.9       58.7
+{txt}
+{com}. sum lifeexpect if year==1940 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        23    59.35217    7.901603       42.6       67.7
+{txt}
+{com}. 
+. sum lifeexpect if year==1980
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}       168    61.13831     11.0226   35.34341   76.62683
+{txt}
+{com}. sum lifeexpect if year==1980 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        47     67.6026    7.412727   48.47073   75.85756
+{txt}
+{com}. sum lifeexpect if year==1980 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        11     74.3078    1.132714   72.62548   75.85756
+{txt}
+{com}. sum lifeexpect if year==1980 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        26    69.66434    4.579927   57.35024   75.73902
+{txt}
+{com}. sum lifeexpect if year==1980 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        22    61.92929    7.184797   48.47073   73.59853
+{txt}
+{com}. sum lifeexpect if year==1980 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        24    62.91862     7.28091   48.47073   74.35854
+{txt}
+{com}. sum lifeexpect if year==1980 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}lifeexpect {c |}{res}        23    72.49023    3.249951      65.31   75.85756
+{txt}
+{com}. 
+. 
+. * life expectancy at age 20
+. sum life20b if year==1940
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        38    65.53079    5.682106      51.66      72.12
+{txt}
+{com}. sum life20b if year==1940 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        32    65.32188     6.08876      51.66      72.12
+{txt}
+{com}. sum life20b if year==1940 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        11    70.40818    1.088529      68.64      72.12
+{txt}
+{com}. sum life20b if year==1940 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        17    65.70765    3.896553      57.79      72.04
+{txt}
+{com}. sum life20b if year==1940 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}         7    57.37714    5.514398      51.66      63.35
+{txt}
+{com}. sum life20b if year==1940 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        12    60.11167    6.223567      51.66      69.77
+{txt}
+{com}. sum life20b if year==1940 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        20      68.448    3.260562      60.13      72.12
+{txt}
+{com}. 
+. sum life20b if year==1960
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        45    70.91645    3.897171       58.2      75.63
+{txt}
+{com}. sum life20b if year==1960 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        36    70.79556    3.903562       58.2      75.63
+{txt}
+{com}. sum life20b if year==1960 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        11    73.67091    .9244826      72.55      75.28
+{txt}
+{com}. sum life20b if year==1960 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        21    71.48381    2.932412      62.97      75.63
+{txt}
+{com}. sum life20b if year==1960 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        10       67.53    4.464181       58.2      73.61
+{txt}
+{com}. sum life20b if year==1960 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        15    68.49867    4.299671       58.2      74.14
+{txt}
+{com}. sum life20b if year==1960 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        21    72.43619    2.634783      64.45      75.63
+{txt}
+{com}. 
+. sum life20b if year==1980
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        44    73.25795    2.830771      66.06      77.17
+{txt}
+{com}. sum life20b if year==1980 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        35    73.66486    2.820461      67.66      77.17
+{txt}
+{com}. sum life20b if year==1980 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        11    75.73818    .8727637      74.77      76.95
+{txt}
+{com}. sum life20b if year==1980 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        20      73.642    2.248386      67.67      77.17
+{txt}
+{com}. sum life20b if year==1980 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}         9    70.64445    2.332086      67.66       73.4
+{txt}
+{com}. sum life20b if year==1980 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        14    71.62857    3.023825      67.66      76.46
+{txt}
+{com}. sum life20b if year==1980 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}life20b {c |}{res}        21    75.02238    1.656104   70.50999      77.17
+{txt}
+{com}. 
+. 
+. * predicted mortality baseline instrument
+. sum compsjmhatit if year==1940
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+compsjmhatit {c |}{res}        91    .4345653    .2841501        .03      1.198
+{txt}
+{com}. sum compsjmhatit if year==1940 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+compsjmhatit {c |}{res}        47    .4726031    .2795265    .120625   1.126048
+{txt}
+{com}. sum compsjmhatit if year==1940 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+compsjmhatit {c |}{res}        11    .1706665    .0501178    .120625   .2699055
+{txt}
+{com}. sum compsjmhatit if year==1940 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+compsjmhatit {c |}{res}        26    .4840946    .2186577      .2052      .8806
+{txt}
+{com}. sum compsjmhatit if year==1940 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+compsjmhatit {c |}{res}        22     .531035    .3203998        .06   1.126048
+{txt}
+{com}. sum compsjmhatit if year==1940 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+compsjmhatit {c |}{res}        24    .7049929    .1863924   .4092111   1.126048
+{txt}
+{com}. sum compsjmhatit if year==1940 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+compsjmhatit {c |}{res}        23    .2301094    .0816168    .120625   .3870878
+{txt}
+{com}. 
+. 
+. * log of population
+. 
+. sum logmaddpop if year==1940
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        64    8.942853    1.547288   6.165418   13.15922
+{txt}
+{com}. sum logmaddpop if year==1940 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        47    9.108862    1.533793   6.429719   13.15922
+{txt}
+{com}. sum logmaddpop if year==1940 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        11    9.348835    1.343981    7.40001   11.79537
+{txt}
+{com}. sum logmaddpop if year==1940 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        26    8.821792    1.407853   6.429719   12.18572
+{txt}
+{com}. sum logmaddpop if year==1940 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        23    9.145161    1.793329   6.165418   13.15922
+{txt}
+{com}. sum logmaddpop if year==1940 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        24     8.99643    1.595856   6.429719   12.68095
+{txt}
+{com}. sum logmaddpop if year==1940 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        23    9.226183    1.492719   7.013016   13.15922
+{txt}
+{com}. 
+. 
+. sum logmaddpop if year==1980
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}       141     8.88715    1.623964   4.197037   13.79657
+{txt}
+{com}. sum logmaddpop if year==1980 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        47    9.814689    1.478679   7.578889   13.79657
+{txt}
+{com}. sum logmaddpop if year==1980 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        11    9.762269    1.292959   8.061534    12.3359
+{txt}
+{com}. sum logmaddpop if year==1980 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        26     9.44118    1.258506   7.578889   12.49115
+{txt}
+{com}. sum logmaddpop if year==1980 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        23    10.00486    1.753384   6.994403   13.79657
+{txt}
+{com}. sum logmaddpop if year==1980 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        24    9.935618    1.489802   7.578889   13.42838
+{txt}
+{com}. sum logmaddpop if year==1980 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 2}logmaddpop {c |}{res}        23    9.688502    1.489549   7.979288   13.79657
+{txt}
+{com}. 
+. 
+. * log of gdp
+. 
+. sum logtotalmaddgdp if year==1940
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        60    9.781781    1.678828   5.879141   13.74266
+{txt}
+{com}. sum logtotalmaddgdp if year==1940 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        47      9.9413    1.589762   6.996682   13.74266
+{txt}
+{com}. sum logtotalmaddgdp if year==1940 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        11    11.08165      1.3997   9.240629   13.74266
+{txt}
+{com}. sum logtotalmaddgdp if year==1940 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        26    9.754407     1.49015   6.996682   12.94823
+{txt}
+{com}. sum logtotalmaddgdp if year==1940 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        23    9.191049    1.712947   5.879141   12.58315
+{txt}
+{com}. sum logtotalmaddgdp if year==1940 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        24     9.39414    1.512425   6.996682    12.4892
+{txt}
+{com}. sum logtotalmaddgdp if year==1940 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        23    10.51225    1.491858   7.574045   13.74266
+{txt}
+{com}. 
+. 
+. sum logtotalmaddgdp if year==1980
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}       137    9.996687    1.984149   5.241747   15.25784
+{txt}
+{com}. sum logtotalmaddgdp if year==1980 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        47    11.52952    1.489274   8.706656   15.25784
+{txt}
+{com}. sum logtotalmaddgdp if year==1980 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        11    12.47258    1.332384   10.57493   15.25784
+{txt}
+{com}. sum logtotalmaddgdp if year==1980 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        26    11.41999    1.358908   9.206432   14.35152
+{txt}
+{com}. sum logtotalmaddgdp if year==1980 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        23      10.889    1.522742   8.706656   13.86123
+{txt}
+{com}. sum logtotalmaddgdp if year==1980 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        24    11.09585    1.435218   8.706656   13.51751
+{txt}
+{com}. sum logtotalmaddgdp if year==1980 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logtotalma~p {c |}{res}        23    11.98204    1.436932   9.263786   15.25784
+{txt}
+{com}. 
+. 
+. * log of gdp per capita
+. sum loggdppcmadd if year==1940
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        60    7.646273    .6931392    6.33169   8.855042
+{txt}
+{com}. sum loggdppcmadd if year==1940 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        47    7.739059    .7254903    6.33169   8.855042
+{txt}
+{com}. sum loggdppcmadd if year==1940 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        11    8.640572    .1504756   8.425463   8.855042
+{txt}
+{com}. sum loggdppcmadd if year==1940 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        26     7.84037     .336505   7.387161   8.333615
+{txt}
+{com}. sum loggdppcmadd if year==1940 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        23    6.951325    .3251861    6.33169   7.369814
+{txt}
+{com}. sum loggdppcmadd if year==1940 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        24    7.303245    .5170189   6.391531   8.305278
+{txt}
+{com}. sum loggdppcmadd if year==1940 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        23    8.193823    .6305956    6.33169   8.855042
+{txt}
+{com}. 
+. 
+. sum loggdppcmadd if year==1980
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}       137    7.989252    1.077586   5.826889   10.29391
+{txt}
+{com}. sum loggdppcmadd if year==1980 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        47    8.622585      .95001   6.305712   9.840501
+{txt}
+{com}. sum loggdppcmadd if year==1980 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        11    9.618068    .1300153   9.421147   9.840501
+{txt}
+{com}. sum loggdppcmadd if year==1980 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        26    8.886564    .4455198   8.102811   9.624363
+{txt}
+{com}. sum loggdppcmadd if year==1980 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        23    7.791893    .7397531   6.305712   9.423871
+{txt}
+{com}. sum loggdppcmadd if year==1980 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        24    8.067988     .824699   6.305712    9.48413
+{txt}
+{com}. sum loggdppcmadd if year==1980 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+loggdppcmadd {c |}{res}        23    9.201295     .700267   6.972418   9.840501
+{txt}
+{com}. 
+. 
+. 
+. * life expectancy at age 20 
+. * (new set of expectancies at 20+20)
+. 
+. sum life20bb if year==1940
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        45    63.61011    6.205942   51.67633   72.09609
+{txt}
+{com}. sum life20bb if year==1940 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        45    63.61011    6.205942   51.67633   72.09609
+{txt}
+{com}. sum life20bb if year==1940 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        11    70.41313    1.078542   68.64855   72.09609
+{txt}
+{com}. sum life20bb if year==1940 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        20    64.51937    3.917589   57.80066   72.02404
+{txt}
+{com}. sum life20bb if year==1940 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        14    56.96593    4.365151   51.67633   63.37061
+{txt}
+{com}. sum life20bb if year==1940 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        22    59.32952    5.340595   51.67633   69.75575
+{txt}
+{com}. sum life20bb if year==1940 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        23    67.70458    3.735214   59.91938   72.09609
+{txt}
+{com}. 
+. 
+. sum life20bb if year==1980
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        45    73.08473    2.890152   67.62652   77.16918
+{txt}
+{com}. sum life20bb if year==1980 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        45    73.08473    2.890152   67.62652   77.16918
+{txt}
+{com}. sum life20bb if year==1980 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        11    75.73514    .8744441   74.73885     76.938
+{txt}
+{com}. sum life20bb if year==1980 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        20    73.59487    2.429208   67.69418   77.16918
+{txt}
+{com}. sum life20bb if year==1980 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        14    70.27348    2.050229   67.62652   73.40559
+{txt}
+{com}. sum life20bb if year==1980 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        22    71.40082    2.774137   67.62652   76.47775
+{txt}
+{com}. sum life20bb if year==1980 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}life20bb {c |}{res}        23    74.69542    1.952466   70.03535   77.16918
+{txt}
+{com}. 
+. 
+. * log of gdp per working age population
+. 
+. sum logGDPperpopworkingage if year==1940
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        55    8.193171    .6351508   6.939539   9.239087
+{txt}
+{com}. sum logGDPperpopworkingage if year==1940 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        46    8.271252    .6392295   6.939539   9.239087
+{txt}
+{com}. sum logGDPperpopworkingage if year==1940 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        11    9.036776    .1470806   8.790314   9.239087
+{txt}
+{com}. sum logGDPperpopworkingage if year==1940 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        24    8.368326    .3046185   7.876878   8.876916
+{txt}
+{com}. sum logGDPperpopworkingage if year==1940 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        20    7.519002    .3060091   6.939539   7.994928
+{txt}
+{com}. sum logGDPperpopworkingage if year==1940 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        24     7.86792    .5065963   6.939539   8.876916
+{txt}
+{com}. sum logGDPperpopworkingage if year==1940 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        22    8.711251     .453637   7.544664   9.239087
+{txt}
+{com}. 
+. 
+. sum logGDPperpopworkingage if year==1980
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        57    9.137238     .809435   6.946267   10.24997
+{txt}
+{com}. sum logGDPperpopworkingage if year==1980 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        46    9.180398    .8592595   6.946267   10.24997
+{txt}
+{com}. sum logGDPperpopworkingage if year==1980 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        11    10.04263    .1168409   9.878431   10.24997
+{txt}
+{com}. sum logGDPperpopworkingage if year==1980 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        24     9.40711    .3959582   8.732044   10.08481
+{txt}
+{com}. sum logGDPperpopworkingage if year==1980 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        20     8.36166    .7123488   6.946267   9.931369
+{txt}
+{com}. sum logGDPperpopworkingage if year==1980 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        24    8.650242    .7940083   6.946267   9.921086
+{txt}
+{com}. sum logGDPperpopworkingage if year==1980 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+logGDPperp~e {c |}{res}        22     9.75875    .4690422   8.732044   10.24997
+{txt}
+{com}. 
+. 
+. 
+. * life expectancy at age 20 
+. * (new set of expectancies at 20+20, 
+. * expanded with UN data for 1990 and 2000)
+. * (life20new = life20bb in 1940 or 1980)
+. 
+. sum life20new if year==1940
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        45    63.61011    6.205942   51.67633   72.09609
+{txt}
+{com}. sum life20new if year==1940 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        45    63.61011    6.205942   51.67633   72.09609
+{txt}
+{com}. sum life20new if year==1940 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        11    70.41313    1.078542   68.64855   72.09609
+{txt}
+{com}. sum life20new if year==1940 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        20    64.51937    3.917589   57.80066   72.02404
+{txt}
+{com}. sum life20new if year==1940 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        14    56.96593    4.365151   51.67633   63.37061
+{txt}
+{com}. sum life20new if year==1940 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        22    59.32952    5.340595   51.67633   69.75575
+{txt}
+{com}. sum life20new if year==1940 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        23    67.70458    3.735214   59.91938   72.09609
+{txt}
+{com}. 
+. 
+. sum life20new if year==1980
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        45    73.08473    2.890152   67.62652   77.16918
+{txt}
+{com}. sum life20new if year==1980 & sample40==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        45    73.08473    2.890152   67.62652   77.16918
+{txt}
+{com}. sum life20new if year==1980 & startrich==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        11    75.73514    .8744441   74.73885     76.938
+{txt}
+{com}. sum life20new if year==1980 & startmedium==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        20    73.59487    2.429208   67.69418   77.16918
+{txt}
+{com}. sum life20new if year==1980 & startpoor==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        14    70.27348    2.050229   67.62652   73.40559
+{txt}
+{com}. sum life20new if year==1980 & above_medmort==1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        22    71.40082    2.774137   67.62652   76.47775
+{txt}
+{com}. sum life20new if year==1980 & above_medmort==0
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}life20new {c |}{res}        23    74.69542    1.952466   70.03535   77.16918
+{txt}
+{com}. 
+. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu\maketable2v10.do"
+{txt}
+{com}. *Creates Table 2: Life Expectancy, Population, Births, and Percentage of Population under 20: OLS Estimates
+. ***********************************************************
+. clear
+{txt}
+{com}. capture log close
+{smcl}
+{com}{sf}{ul off}

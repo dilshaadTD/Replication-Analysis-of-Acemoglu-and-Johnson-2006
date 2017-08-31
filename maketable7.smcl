@@ -1,0 +1,41 @@
+{smcl}
+{com}{sf}{ul off}. clear
+
+. use changes0040
+
+. matwrite _all using changes0040, replace
+{txt}warning: ignoring string variable country
+(note: file changes0040.mat not found)
+warning: pop00 contains missing values
+warning: gdp00 contains missing values
+warning: gdppc00 contains missing values
+warning: dpop contains missing values
+warning: dgdp contains missing values
+warning: dgdppc contains missing values
+file changes0040.mat saved
+
+{com}. clear
+
+. use changes0048
+{err}{p 0 4}
+file changes0048.dta
+not found
+{p_end}
+{txt}{search r(601):r(601);}
+
+{com}. use changes0080
+{err}{p 0 4}
+file changes0080.dta
+not found
+{p_end}
+{txt}{search r(601):r(601);}
+
+{com}. use changes4080
+
+. matwrite _all using changes4080, replace
+{txt}warning: ignoring string variable country
+(note: file changes4080.mat not found)
+file changes4080.mat saved
+
+{com}. 
+. exit, clear

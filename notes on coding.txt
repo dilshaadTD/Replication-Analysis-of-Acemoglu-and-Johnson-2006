@@ -1,0 +1,8 @@
+stata to matlab: matwrite _all using disease, replace 
+
+Problems:
+table 5 panel panel regressions are wrong!
+
+R_squares all 
+ * R_sq in table 5 is different from his stata code findings
+SE all

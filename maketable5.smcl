@@ -1,0 +1,482 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu\maketable5.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 2 Dec 2013, 09:54:30
+{txt}
+{com}. 
+. /*Data Files Used
+>         disease
+>         
+> *Data Files Created as Final Product
+>         none
+>         
+> *Data Files Created as Intermediate Product
+>         none*/
+.         
+. use disease_original, clear
+{txt}
+{com}. tsset ctry year
+{res}{txt}{col 8}panel variable:  {res}ctry (unbalanced)
+{txt}{col 9}time variable:  {res}{col 25}year, 1900 to 2005, but with gaps
+{txt}{col 17}delta:  {res}1 unit
+{txt}
+{com}. 
+. 
+. *********
+. 
+. *Panel A: long differences 
+. 
+. *col 1: just 1940 and 1980 all available countries
+. xtreg  loglifeexpect compsjmhatit yr1940 yr1980 if (year==1940 | year==1980) & t51sample==1, fe vce(cluster ctrycluster)
+{txt}note: yr1980 omitted because of collinearity
+
+Fixed-effects (within) regression               Number of obs      = {res}      150
+{txt}Group variable: {res}ctry                            {txt}Number of groups   = {res}       75
+
+{txt}R-sq:  within  = {res}0.8815                         {txt}Obs per group: min = {res}        2
+{txt}       between = {res}0.3915                                        {txt}avg = {res}      2.0
+{txt}       overall = {res}0.6263                                        {txt}max = {res}        2
+
+                                                {txt}F({res}2{txt},{res}72{txt})            = {res}   261.00
+{txt}corr(u_i, Xb)  = {res}0.1039                         {txt}Prob > F           =    {res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:73} clusters in ctrycluster)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}loglifeexp~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+compsjmhatit {c |}{col 14}{res}{space 2}-.3941116{col 26}{space 2} .0652805{col 37}{space 1}   -6.04{col 46}{space 3}0.000{col 54}{space 4}-.5242459{col 67}{space 3}-.2639774
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-.1866977{col 26}{space 2} .0323235{col 37}{space 1}   -5.78{col 46}{space 3}0.000{col 54}{space 4}-.2511334{col 67}{space 3}-.1222621
+{txt}{space 6}yr1980 {c |}{col 14}{res}  (omitted)
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.194207{col 26}{space 2} .0080902{col 37}{space 1}  518.43{col 46}{space 3}0.000{col 54}{space 4} 4.178079{col 67}{space 3} 4.210334
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .14983786
+{txt}     sigma_e {c |} {res} .09916895
+{txt}         rho {c |} {res}  .6953936{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. outreg2  compsjmhatit using z10tab5a, ti(z10tab5a) cti(1) excel nocons bracket noaster   addstat(Number of Countries, e(N_clust)) replace
+{txt}{browse `"z10tab5a.xml"'}
+{browse `"C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu"' :dir}{com} : {txt}{stata `"seeout using "z10tab5a.txt""':seeout}
+
+{com}. 
+. *col 2: just 1940 and 1980
+. xtreg  loglifeexpect compsjmhatit yr1940 yr1980 if (sample40==1 & sample80==1) & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe vce(cluster ctrycluster)
+{txt}note: yr1980 omitted because of collinearity
+
+Fixed-effects (within) regression               Number of obs      = {res}       94
+{txt}Group variable: {res}ctry                            {txt}Number of groups   = {res}       47
+
+{txt}R-sq:  within  = {res}0.8993                         {txt}Obs per group: min = {res}        2
+{txt}       between = {res}0.5854                                        {txt}avg = {res}      2.0
+{txt}       overall = {res}0.6670                                        {txt}max = {res}        2
+
+                                                {txt}F({res}2{txt},{res}44{txt})            = {res}   178.41
+{txt}corr(u_i, Xb)  = {res}0.1784                         {txt}Prob > F           =    {res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:45} clusters in ctrycluster)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}loglifeexp~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+compsjmhatit {c |}{col 14}{res}{space 2}-.4449119{col 26}{space 2}  .063693{col 37}{space 1}   -6.99{col 46}{space 3}0.000{col 54}{space 4}-.5732768{col 67}{space 3} -.316547
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-.1333652{col 26}{space 2} .0291797{col 37}{space 1}   -4.57{col 46}{space 3}0.000{col 54}{space 4}-.1921731{col 67}{space 3}-.0745573
+{txt}{space 6}yr1980 {c |}{col 14}{res}  (omitted)
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.207305{col 26}{space 2} .0090973{col 37}{space 1}  462.48{col 46}{space 3}0.000{col 54}{space 4}  4.18897{col 67}{space 3} 4.225639
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .14549056
+{txt}     sigma_e {c |} {res}  .0882451
+{txt}         rho {c |} {res} .73105586{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. outreg2  compsjmhatit using z10tab5a, cti(2) excel nocons bracket noaster   addstat(Number of Countries, e(N_clust)) append
+{txt}{browse `"z10tab5a.xml"'}
+{browse `"C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu"' :dir}{com} : {txt}{stata `"seeout using "z10tab5a.txt""':seeout}
+
+{com}. 
+. *col 3: just 1940 and 2000
+. xtreg  loglifeexpect compsjmhatit yr1940 yr2000 if sample40==1 & (year==1940 | year==2000) & sjbasesamplenoncomm==1, fe vce(cluster ctrycluster)
+{txt}note: yr2000 omitted because of collinearity
+
+Fixed-effects (within) regression               Number of obs      = {res}       94
+{txt}Group variable: {res}ctry                            {txt}Number of groups   = {res}       47
+
+{txt}R-sq:  within  = {res}0.9197                         {txt}Obs per group: min = {res}        2
+{txt}       between = {res}0.5716                                        {txt}avg = {res}      2.0
+{txt}       overall = {res}0.7768                                        {txt}max = {res}        2
+
+                                                {txt}F({res}2{txt},{res}44{txt})            = {res}   224.20
+{txt}corr(u_i, Xb)  = {res}0.1328                         {txt}Prob > F           =    {res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:45} clusters in ctrycluster)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}loglifeexp~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+compsjmhatit {c |}{col 14}{res}{space 2}-.5586904{col 26}{space 2} .0706786{col 37}{space 1}   -7.90{col 46}{space 3}0.000{col 54}{space 4}-.7011338{col 67}{space 3}-.4162471
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-.1582129{col 26}{space 2} .0314701{col 37}{space 1}   -5.03{col 46}{space 3}0.000{col 54}{space 4}-.2216366{col 67}{space 3}-.0947891
+{txt}{space 6}yr2000 {c |}{col 14}{res}  (omitted)
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.285924{col 26}{space 2} .0099725{col 37}{space 1}  429.78{col 46}{space 3}0.000{col 54}{space 4} 4.265826{col 67}{space 3} 4.306023
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .12095875
+{txt}     sigma_e {c |} {res} .09601767
+{txt}         rho {c |} {res} .61344931{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. outreg2  compsjmhatit using z10tab5a, cti(3) excel nocons bracket noaster   addstat(Number of Countries, e(N_clust)) append
+{txt}{browse `"z10tab5a.xml"'}
+{browse `"C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu"' :dir}{com} : {txt}{stata `"seeout using "z10tab5a.txt""':seeout}
+
+{com}. 
+. *col 4: not initially rich
+. xtreg  loglifeexpect compsjmhatit yr1940 yr1980 if (sample40==1 & sample80==1) & (year==1940 | year==1980)  & sjbasesamplenoncomm==1 & startrich~=1, fe vce(cluster ctrycluster)
+{txt}note: yr1980 omitted because of collinearity
+
+Fixed-effects (within) regression               Number of obs      = {res}       72
+{txt}Group variable: {res}ctry                            {txt}Number of groups   = {res}       36
+
+{txt}R-sq:  within  = {res}0.9183                         {txt}Obs per group: min = {res}        2
+{txt}       between = {res}0.3987                                        {txt}avg = {res}      2.0
+{txt}       overall = {res}0.6671                                        {txt}max = {res}        2
+
+                                                {txt}F({res}2{txt},{res}33{txt})            = {res}   179.61
+{txt}corr(u_i, Xb)  = {res}0.0833                         {txt}Prob > F           =    {res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:34} clusters in ctrycluster)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}loglifeexp~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+compsjmhatit {c |}{col 14}{res}{space 2}-.3046294{col 26}{space 2} .0833789{col 37}{space 1}   -3.65{col 46}{space 3}0.001{col 54}{space 4} -.474265{col 67}{space 3}-.1349938
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2} -.236224{col 26}{space 2} .0487389{col 37}{space 1}   -4.85{col 46}{space 3}0.000{col 54}{space 4}-.3353839{col 67}{space 3} -.137064
+{txt}{space 6}yr1980 {c |}{col 14}{res}  (omitted)
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.176503{col 26}{space 2} .0107808{col 37}{space 1}  387.40{col 46}{space 3}0.000{col 54}{space 4} 4.154569{col 67}{space 3} 4.198437
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .14764897
+{txt}     sigma_e {c |} {res} .09012354
+{txt}         rho {c |} {res} .72855678{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. outreg2  compsjmhatit using z10tab5a, cti(4) excel nocons bracket noaster   addstat(Number of Countries, e(N_clust)) append
+{txt}{browse `"z10tab5a.xml"'}
+{browse `"C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu"' :dir}{com} : {txt}{stata `"seeout using "z10tab5a.txt""':seeout}
+
+{com}. 
+. 
+. *col 5: interact with initial institutions
+. xtreg  loglifeexpect compsjmhatit yr1950xavcons506070-yr1980xavcons506070 yr1940 yr1980  if (sample40==1 & sample80==1) & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe vce(cluster ctrycluster) 
+{txt}note: yr1950xavcons506070 omitted because of collinearity
+note: yr1960xavcons506070 omitted because of collinearity
+note: yr1970xavcons506070 omitted because of collinearity
+note: yr1980 omitted because of collinearity
+
+Fixed-effects (within) regression               Number of obs      = {res}       94
+{txt}Group variable: {res}ctry                            {txt}Number of groups   = {res}       47
+
+{txt}R-sq:  within  = {res}0.9230                         {txt}Obs per group: min = {res}        2
+{txt}       between = {res}0.1574                                        {txt}avg = {res}      2.0
+{txt}       overall = {res}0.5448                                        {txt}max = {res}        2
+
+                                                {txt}F({res}3{txt},{res}44{txt})            = {res}   160.70
+{txt}corr(u_i, Xb)  = {res}0.0382                         {txt}Prob > F           =    {res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:45} clusters in ctrycluster)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}loglifeexp~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+compsjmhatit {c |}{col 14}{res}{space 2}-.3528373{col 26}{space 2} .0697402{col 37}{space 1}   -5.06{col 46}{space 3}0.000{col 54}{space 4}-.4933894{col 67}{space 3}-.2122852
+{txt}yr195~506070 {c |}{col 14}{res}  (omitted)
+{txt}yr196~506070 {c |}{col 14}{res}  (omitted)
+{txt}yr197~506070 {c |}{col 14}{res}  (omitted)
+{txt}yr198~506070 {c |}{col 14}{res}{space 2}-.0310378{col 26}{space 2} .0074393{col 37}{space 1}   -4.17{col 46}{space 3}0.000{col 54}{space 4}-.0460306{col 67}{space 3} -.016045
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-.3243601{col 26}{space 2} .0594387{col 37}{space 1}   -5.46{col 46}{space 3}0.000{col 54}{space 4} -.444151{col 67}{space 3}-.2045692
+{txt}{space 6}yr1980 {c |}{col 14}{res}  (omitted)
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.354785{col 26}{space 2} .0360154{col 37}{space 1}  120.91{col 46}{space 3}0.000{col 54}{space 4} 4.282201{col 67}{space 3} 4.427369
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .17420591
+{txt}     sigma_e {c |} {res} .07805709
+{txt}         rho {c |} {res} .83279891{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. outreg2  compsjmhatit using z10tab5a, cti(5) excel nocons bracket noaster   addstat(Number of Countries, e(N_clust)) append
+{txt}{browse `"z10tab5a.xml"'}
+{browse `"C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu"' :dir}{com} : {txt}{stata `"seeout using "z10tab5a.txt""':seeout}
+
+{com}. 
+. *col 6: interact with 1930 GDP pc
+. xtreg  loglifeexpect compsjmhatit yr1950xloggdppcmadd30-yr1980xloggdppcmadd30 yr1940 yr1980  if (sample40==1 & sample80==1) & (year==1940 | year==1980) & sjbasesamplenoncomm==1, vce(cluster ctrycluster) fe
+{txt}note: yr1950xloggdppcmadd30 omitted because of collinearity
+note: yr1960xloggdppcmadd30 omitted because of collinearity
+note: yr1970xloggdppcmadd30 omitted because of collinearity
+note: yr1980 omitted because of collinearity
+
+Fixed-effects (within) regression               Number of obs      = {res}       94
+{txt}Group variable: {res}ctry                            {txt}Number of groups   = {res}       47
+
+{txt}R-sq:  within  = {res}0.9235                         {txt}Obs per group: min = {res}        2
+{txt}       between = {res}0.0507                                        {txt}avg = {res}      2.0
+{txt}       overall = {res}0.4313                                        {txt}max = {res}        2
+
+                                                {txt}F({res}3{txt},{res}44{txt})            = {res}   237.66
+{txt}corr(u_i, Xb)  = {res}-0.0615                        {txt}Prob > F           =    {res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:45} clusters in ctrycluster)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}loglifeexp~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+compsjmhatit {c |}{col 14}{res}{space 2}-.2508282{col 26}{space 2} .0876542{col 37}{space 1}   -2.86{col 46}{space 3}0.006{col 54}{space 4}-.4274836{col 67}{space 3}-.0741728
+{txt}yr1950xlo~30 {c |}{col 14}{res}  (omitted)
+{txt}yr1960xlo~30 {c |}{col 14}{res}  (omitted)
+{txt}yr1970xlo~30 {c |}{col 14}{res}  (omitted)
+{txt}yr1980xlo~30 {c |}{col 14}{res}{space 2}-.1168129{col 26}{space 2} .0304967{col 37}{space 1}   -3.83{col 46}{space 3}0.000{col 54}{space 4}-.1782749{col 67}{space 3}-.0553509
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2} -1.12224{col 26}{space 2}  .262982{col 37}{space 1}   -4.27{col 46}{space 3}0.000{col 54}{space 4}-1.652245{col 67}{space 3}-.5922342
+{txt}{space 6}yr1980 {c |}{col 14}{res}  (omitted)
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 5.104454{col 26}{space 2} .2307043{col 37}{space 1}   22.13{col 46}{space 3}0.000{col 54}{space 4} 4.639501{col 67}{space 3} 5.569408
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .19685183
+{txt}     sigma_e {c |} {res} .07780813
+{txt}         rho {c |} {res} .86487805{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. outreg2  compsjmhatit using z10tab5a, cti(6) excel nocons bracket noaster   addstat(Number of Countries, e(N_clust)) append
+{txt}{browse `"z10tab5a.xml"'}
+{browse `"C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu"' :dir}{com} : {txt}{stata `"seeout using "z10tab5a.txt""':seeout}
+
+{com}. 
+. *col 7: interact with continent dummies
+. xtreg  loglifeexpect compsjmhatit yr1950xauscont-yr1980xauscont yr1950xasia-yr1980xasia yr1950xafrica-yr1980xafrica yr1950xeurope-yr1980xeurope yr1950xamerica-yr1980xamerica yr1940 yr1980  if (sample40==1 & sample80==1) & (year==1940 | year==1980) & sjbasesamplenoncomm==1, fe vce(cluster ctrycluster)
+{txt}note: yr1950xauscont omitted because of collinearity
+note: yr1960xauscont omitted because of collinearity
+note: yr1970xauscont omitted because of collinearity
+note: yr1950xasia omitted because of collinearity
+note: yr1960xasia omitted because of collinearity
+note: yr1970xasia omitted because of collinearity
+note: yr1980xasia omitted because of collinearity
+note: yr1950xafrica omitted because of collinearity
+note: yr1960xafrica omitted because of collinearity
+note: yr1970xafrica omitted because of collinearity
+note: yr1980xafrica omitted because of collinearity
+note: yr1950xeurope omitted because of collinearity
+note: yr1960xeurope omitted because of collinearity
+note: yr1970xeurope omitted because of collinearity
+note: yr1950xamerica omitted because of collinearity
+note: yr1960xamerica omitted because of collinearity
+note: yr1970xamerica omitted because of collinearity
+note: yr1980 omitted because of collinearity
+
+Fixed-effects (within) regression               Number of obs      = {res}       94
+{txt}Group variable: {res}ctry                            {txt}Number of groups   = {res}       47
+
+{txt}R-sq:  within  = {res}0.9317                         {txt}Obs per group: min = {res}        2
+{txt}       between = {res}0.0068                                        {txt}avg = {res}      2.0
+{txt}       overall = {res}0.4779                                        {txt}max = {res}        2
+
+                                                {txt}F({res}5{txt},{res}44{txt})            = {res}   120.38
+{txt}corr(u_i, Xb)  = {res}-0.0286                        {txt}Prob > F           =    {res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:45} clusters in ctrycluster)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}loglifeexp~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+compsjmhatit {c |}{col 14}{res}{space 2}-.2976611{col 26}{space 2} .0741631{col 37}{space 1}   -4.01{col 46}{space 3}0.000{col 54}{space 4}-.4471271{col 67}{space 3}-.1481951
+{txt}yr1950xaus~t {c |}{col 14}{res}  (omitted)
+{txt}yr1960xaus~t {c |}{col 14}{res}  (omitted)
+{txt}yr1970xaus~t {c |}{col 14}{res}  (omitted)
+{txt}yr1980xaus~t {c |}{col 14}{res}{space 2}-.2207874{col 26}{space 2} .0369167{col 37}{space 1}   -5.98{col 46}{space 3}0.000{col 54}{space 4}-.2951881{col 67}{space 3}-.1463866
+{txt}{space 1}yr1950xasia {c |}{col 14}{res}  (omitted)
+{txt}{space 1}yr1960xasia {c |}{col 14}{res}  (omitted)
+{txt}{space 1}yr1970xasia {c |}{col 14}{res}  (omitted)
+{txt}{space 1}yr1980xasia {c |}{col 14}{res}  (omitted)
+{txt}yr1950xafr~a {c |}{col 14}{res}  (omitted)
+{txt}yr1960xafr~a {c |}{col 14}{res}  (omitted)
+{txt}yr1970xafr~a {c |}{col 14}{res}  (omitted)
+{txt}yr1980xafr~a {c |}{col 14}{res}  (omitted)
+{txt}yr1950xeur~e {c |}{col 14}{res}  (omitted)
+{txt}yr1960xeur~e {c |}{col 14}{res}  (omitted)
+{txt}yr1970xeur~e {c |}{col 14}{res}  (omitted)
+{txt}yr1980xeur~e {c |}{col 14}{res}{space 2}-.1338257{col 26}{space 2} .0405976{col 37}{space 1}   -3.30{col 46}{space 3}0.002{col 54}{space 4}-.2156448{col 67}{space 3}-.0520066
+{txt}yr1950xame~a {c |}{col 14}{res}  (omitted)
+{txt}yr1960xame~a {c |}{col 14}{res}  (omitted)
+{txt}yr1970xame~a {c |}{col 14}{res}  (omitted)
+{txt}yr1980xame~a {c |}{col 14}{res}{space 2} .0268441{col 26}{space 2} .0435577{col 37}{space 1}    0.62{col 46}{space 3}0.541{col 54}{space 4}-.0609406{col 67}{space 3} .1146288
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-.2476285{col 26}{space 2} .0458795{col 37}{space 1}   -5.40{col 46}{space 3}0.000{col 54}{space 4}-.3400926{col 67}{space 3}-.1551644
+{txt}{space 6}yr1980 {c |}{col 14}{res}  (omitted)
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.251977{col 26}{space 2} .0282931{col 37}{space 1}  150.28{col 46}{space 3}0.000{col 54}{space 4} 4.194956{col 67}{space 3} 4.308998
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .18853467
+{txt}     sigma_e {c |} {res} .07524242
+{txt}         rho {c |} {res} .86260934{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. outreg2  compsjmhatit using z10tab5a, cti(7) excel nocons bracket noaster   addstat(Number of Countries, e(N_clust)) append
+{txt}{browse `"z10tab5a.xml"'}
+{browse `"C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu"' :dir}{com} : {txt}{stata `"seeout using "z10tab5a.txt""':seeout}
+
+{com}. 
+. *col 8 using global mortality rate base sample
+. xtreg  loglifeexpect globmort1000 yr1940 yr1980 if (sample40==1 & sample80==1) & (year==1940 | year==1980)  & sjbasesamplenoncomm==1, fe vce(cluster ctrycluster)
+{txt}note: yr1980 omitted because of collinearity
+
+Fixed-effects (within) regression               Number of obs      = {res}       94
+{txt}Group variable: {res}ctry                            {txt}Number of groups   = {res}       47
+
+{txt}R-sq:  within  = {res}0.8967                         {txt}Obs per group: min = {res}        2
+{txt}       between = {res}0.5459                                        {txt}avg = {res}      2.0
+{txt}       overall = {res}0.6544                                        {txt}max = {res}        2
+
+                                                {txt}F({res}2{txt},{res}44{txt})            = {res}   165.78
+{txt}corr(u_i, Xb)  = {res}0.1647                         {txt}Prob > F           =    {res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:45} clusters in ctrycluster)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}loglifeexp~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+globmort1000 {c |}{col 14}{res}{space 2}-.4571555{col 26}{space 2} .0683441{col 37}{space 1}   -6.69{col 46}{space 3}0.000{col 54}{space 4}-.5948941{col 67}{space 3}-.3194169
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-.1326819{col 26}{space 2} .0298088{col 37}{space 1}   -4.45{col 46}{space 3}0.000{col 54}{space 4}-.1927575{col 67}{space 3}-.0726063
+{txt}{space 6}yr1980 {c |}{col 14}{res}  (omitted)
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.207305{col 26}{space 2} .0094382{col 37}{space 1}  445.78{col 46}{space 3}0.000{col 54}{space 4} 4.188283{col 67}{space 3} 4.226326
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .14800021
+{txt}     sigma_e {c |} {res} .08939662
+{txt}         rho {c |} {res} .73267979{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. outreg2  globmort1000 using z10tab5a, cti(8) excel nocons bracket noaster   addstat(Number of Countries, e(N_clust)) append
+{txt}{browse `"z10tab5a.xml"'}
+{browse `"C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu"' :dir}{com} : {txt}{stata `"seeout using "z10tab5a.txt""':seeout}
+
+{com}. 
+. *col 9: using global mortality rate not initially rich
+. xtreg  loglifeexpect globmort1000 yr1940 yr1980 if startrich~=1 & sample40==1 & sample80==1 & (year==1940 | year==1980)  & sjbasesamplenoncomm==1, fe vce(cluster ctrycluster)
+{txt}note: yr1980 omitted because of collinearity
+
+Fixed-effects (within) regression               Number of obs      = {res}       72
+{txt}Group variable: {res}ctry                            {txt}Number of groups   = {res}       36
+
+{txt}R-sq:  within  = {res}0.9164                         {txt}Obs per group: min = {res}        2
+{txt}       between = {res}0.3469                                        {txt}avg = {res}      2.0
+{txt}       overall = {res}0.6563                                        {txt}max = {res}        2
+
+                                                {txt}F({res}2{txt},{res}33{txt})            = {res}   166.76
+{txt}corr(u_i, Xb)  = {res}0.0726                         {txt}Prob > F           =    {res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:34} clusters in ctrycluster)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}loglifeexp~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+globmort1000 {c |}{col 14}{res}{space 2}-.3077985{col 26}{space 2} .0882433{col 37}{space 1}   -3.49{col 46}{space 3}0.001{col 54}{space 4}-.4873308{col 67}{space 3}-.1282663
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-.2389213{col 26}{space 2} .0495134{col 37}{space 1}   -4.83{col 46}{space 3}0.000{col 54}{space 4}-.3396572{col 67}{space 3}-.1381854
+{txt}{space 6}yr1980 {c |}{col 14}{res}  (omitted)
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.176503{col 26}{space 2} .0111788{col 37}{space 1}  373.61{col 46}{space 3}0.000{col 54}{space 4} 4.153759{col 67}{space 3} 4.199246
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .15001597
+{txt}     sigma_e {c |} {res} .09117295
+{txt}         rho {c |} {res} .73026489{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. outreg2  globmort1000 using z10tab5a, cti(9) excel nocons bracket noaster   addstat(Number of Countries, e(N_clust)) append
+{txt}{browse `"z10tab5a.xml"'}
+{browse `"C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu"' :dir}{com} : {txt}{stata `"seeout using "z10tab5a.txt""':seeout}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Dilsat\AppData\Local\Temp\STD01000000.tmp"
+{txt}
+{com}. *col 1: 1940-80 all available countries
+. xtreg  loglifeexpect compsjmhatit yr1940-yr1980 if (year>=1940 & year<=1980), fe vce(cluster ctrycluster)
+{txt}note: yr1980 omitted because of collinearity
+
+Fixed-effects (within) regression               Number of obs      = {res}      405
+{txt}Group variable: {res}ctry                            {txt}Number of groups   = {res}       84
+
+{txt}R-sq:  within  = {res}0.8114                         {txt}Obs per group: min = {res}        1
+{txt}       between = {res}0.1224                                        {txt}avg = {res}      4.8
+{txt}       overall = {res}0.3532                                        {txt}max = {res}        5
+
+                                                {txt}F({res}5{txt},{res}81{txt})            = {res}   106.55
+{txt}corr(u_i, Xb)  = {res}0.0397                         {txt}Prob > F           =    {res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:82} clusters in ctrycluster)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}loglifeexp~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+compsjmhatit {c |}{col 14}{res}{space 2}-.2913766{col 26}{space 2} .0564477{col 37}{space 1}   -5.16{col 46}{space 3}0.000{col 54}{space 4}-.4036899{col 67}{space 3}-.1790633
+{txt}{space 6}yr1940 {c |}{col 14}{res}{space 2}-.2311612{col 26}{space 2} .0281724{col 37}{space 1}   -8.21{col 46}{space 3}0.000{col 54}{space 4}-.2872155{col 67}{space 3}-.1751069
+{txt}{space 6}yr1950 {c |}{col 14}{res}{space 2}-.1950383{col 26}{space 2} .0126805{col 37}{space 1}  -15.38{col 46}{space 3}0.000{col 54}{space 4}-.2202685{col 67}{space 3} -.169808
+{txt}{space 6}yr1960 {c |}{col 14}{res}{space 2}-.1243684{col 26}{space 2}  .010791{col 37}{space 1}  -11.53{col 46}{space 3}0.000{col 54}{space 4}-.1458392{col 67}{space 3}-.1028977
+{txt}{space 6}yr1970 {c |}{col 14}{res}{space 2}-.0557421{col 26}{space 2} .0046442{col 37}{space 1}  -12.00{col 46}{space 3}0.000{col 54}{space 4}-.0649826{col 67}{space 3}-.0465017
+{txt}{space 6}yr1980 {c |}{col 14}{res}  (omitted)
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.182024{col 26}{space 2} .0077952{col 37}{space 1}  536.49{col 46}{space 3}0.000{col 54}{space 4} 4.166514{col 67}{space 3} 4.197534
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .17455122
+{txt}     sigma_e {c |} {res} .06871401
+{txt}         rho {c |} {res}  .8658241{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+{txt}end of do-file
+
+{com}. clear
+
+. insheet using "C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu\attr26.txt"
+{txt}(8 vars, 405 obs)
+
+{com}. xtreg v1 v2-v7, fe vce(cluster v8)
+{err}must specify panelvar; use xtset
+{txt}{search r(459):r(459);}
+
+{com}. xtset v8
+{txt}{col 8}panel variable:  {res}v8 (unbalanced)
+
+{com}. xtreg v1 v2-v7, fe vce(cluster v8)
+{txt}note: v7 omitted because of collinearity
+
+Fixed-effects (within) regression               Number of obs      = {res}      405
+{txt}Group variable: {res}v8                              {txt}Number of groups   = {res}       84
+
+{txt}R-sq:  within  = {res}0.8114                         {txt}Obs per group: min = {res}        1
+{txt}       between = {res}0.1224                                        {txt}avg = {res}      4.8
+{txt}       overall = {res}0.3532                                        {txt}max = {res}        5
+
+                                                {txt}F({res}5{txt},{res}83{txt})            = {res}   110.04
+{txt}corr(u_i, Xb)  = {res}0.0398                         {txt}Prob > F           =    {res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:84} clusters in v8)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          v1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}v2 {c |}{col 14}{res}{space 2}-.2913984{col 26}{space 2} .0566101{col 37}{space 1}   -5.15{col 46}{space 3}0.000{col 54}{space 4}-.4039937{col 67}{space 3}-.1788031
+{txt}{space 10}v3 {c |}{col 14}{res}{space 2}-.2311471{col 26}{space 2} .0281652{col 37}{space 1}   -8.21{col 46}{space 3}0.000{col 54}{space 4}-.2871665{col 67}{space 3}-.1751276
+{txt}{space 10}v4 {c |}{col 14}{res}{space 2}-.1950331{col 26}{space 2} .0122173{col 37}{space 1}  -15.96{col 46}{space 3}0.000{col 54}{space 4}-.2193328{col 67}{space 3}-.1707334
+{txt}{space 10}v5 {c |}{col 14}{res}{space 2}-.1243634{col 26}{space 2} .0104792{col 37}{space 1}  -11.87{col 46}{space 3}0.000{col 54}{space 4}-.1452061{col 67}{space 3}-.1035207
+{txt}{space 10}v6 {c |}{col 14}{res}{space 2}-.0557341{col 26}{space 2} .0044592{col 37}{space 1}  -12.50{col 46}{space 3}0.000{col 54}{space 4}-.0646033{col 67}{space 3} -.046865
+{txt}{space 10}v7 {c |}{col 14}{res}  (omitted)
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.182021{col 26}{space 2}  .007558{col 37}{space 1}  553.33{col 46}{space 3}0.000{col 54}{space 4} 4.166989{col 67}{space 3} 4.197054
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .17454838
+{txt}     sigma_e {c |} {res}  .0687145
+{txt}         rho {c |} {res} .86581867{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. run "C:\Users\Dilsat\Documents\ECN726\lifeexpectancy_Acemoglu\maketable7.do"
+{smcl}
+{com}{sf}{ul off}
